@@ -1,16 +1,9 @@
 {
 	"messages": [
-		"Hello, World.",
-		"A/S/L? 12/m/fl here!",
-		"I came here from Reddit.",
-		"The sunlight, it burnses us, precious.",
-		"WELCOME TO THE JUNGLE, GET READY TO DIE."
-	],
-	"users": [
-		"Axe el Rose",
-		"John Depp",
-		"Ronald Schwarzenegger",
-		"Dolan Mills",
-		"Hillary Clifton"
+		{ "user": "Hillary Clifton", "timestamp": "0:00", "message":"Hello, World."},
+		{ "user": "John Depp", "timestamp": "0:00", "message": "A/S/L? 12/m/fl here!"},
+		{ "user": "Ronald Schwarzenegger", "timestamp": "0:00", "message": "I came here from Reddit."},
+		{ "user": "Dolan Mills", "timestamp": "0:00", "message": "The sunlight, it burnses us, precious."},
+		{ "user": "Axe el Rose", "timestamp": "0:00", "message": "WELCOME TO THE JUNGLE, GET READY TO DIE."}
 	]
 }

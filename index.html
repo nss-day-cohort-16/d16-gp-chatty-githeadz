@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chatty!</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/styles.css"></link>
+	
+
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+		    <div class="col-md-12">
+		        <div class="panel panel-default">
+
+		            <nav class="panel-heading" id="navMain">
+		                <div class="input-group col-md-12">
+
+		                	<div class="col-md-2">
+								<img id="imgLogo" src="img/logo_default.png">
+							</div>
+
+							<div class="col-md-8">                           
+		                    	<input id="txtInput" type="text" class="form-control input-sm" placeholder="Type your message here..." vk_18c1e="subscribed" style="direction: rtl;" />
+		                    </div>
+
+		                    <div class="col-md-2">
+								<button class="btn btn-default" id="btnClear" type="button">
+		                        Clear Msgs                         
+		                        </button>
+		                    </div>
+		                </div>
+
+		                <div class="checkBoxs col-md-offset-4">
+                			<input id="checkTheme" type="checkbox" name="darkTheme" value="None">Dark Theme
+		                </div>
+		                <div class="checkBoxs col-md-offset-2">
+		                	<input id="checkLargeText" type="checkbox" name="largeText" value="None">Large Text
+		                </div>
+		            </nav>
+		            <div id="messages">
+		                <div class="panel-body">
+		                    <ul class="chat">
+		                        <li class="right clearfix ">
+		                            <span class="chat-img pull-right">
+		                                <img src="http://placehold.it/50/FA6F57/fff&text=ME" alt="User Avatar" class="img-circle">
+		                            </span>
+		                            <div class="chat-body clearfix">
+		                                <div class="header">
+		                                    <small class=" text-muted"><span class="glyphicon glyphicon-time"></span>13 mins ago</small>
+		                                    <strong class="pull-right primary-font">Bhaumik Patel</strong>
+		                                </div>
+		                                <p>
+		                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+		                                </p>
+		                            </div>
+		                        </li>
+		                    </ul>
+		                </div>	
+	                </div>	            
+		        </div>
+		    </div>
+		</div>
+	</div>
+
+	<div class="col-md-12 panel panel-heading">
+		<footer class="footerMain col-md-offset-6">
+			&copy; gitHeadz 2016.
+		</footer>
+	</div>
+
+	<script type="text/javascript" src="main.js"></script>
+</body>
+</html>

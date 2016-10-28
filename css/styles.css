@@ -1,6 +1,3 @@
-body {
-  height: 100%; }
-
 .navbar-brand {
   position: relative;
   z-index: 2; }
@@ -81,8 +78,7 @@ nav.navbar.navbar-default {
   margin-right: 60px; }
 
 .chat li .chat-body p {
-  margin: 0;
-  color: #777777; }
+  margin: 0; }
 
 .panel-primary > .panel-heading {
   color: #fff;
@@ -114,7 +110,39 @@ nav.navbar.navbar-default {
   display: inline-block; }
 
 #messages {
-  height: 80vh;
+  height: 450px;
   overflow-y: auto; }
+
+.embiggin {
+  font-size: 2em; }
+
+.btn-embiggin {
+  font-size: 1.25em; }
+
+.emdarkin {
+  background: #222;
+  color: #ddd; }
+
+.emdarkin p {
+  color: #ddd; }
+
+body {
+  height: 100%; }
+
+#navMain {
+  height: 20%;
+  margin: 0; }
+
+#footerMain {
+  width: 100%;
+  height: 5%;
+  margin: 0;
+  text-align: center; }
+
+#divMain {
+  height: 100%; }
+
+.container {
+  margin-top: 1em; }
 
 /*# sourceMappingURL=styles.css.map */

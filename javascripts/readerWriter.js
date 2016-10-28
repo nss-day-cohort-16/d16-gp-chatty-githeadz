@@ -15,14 +15,16 @@ var Cathy = (function (oldCathy) {
     var msgHTML = '';
     msgHTML += '<li class="right clearfix" id="' + idCounter + '"><span class="chat-img pull-right"><img src="http://placehold.it/50/FA6F57/fff&text=';
     msgHTML += msgObject.user;
-    msgHTML += '" alt="User Avatar" class="img-circle"><button class="btn btn-default" type="button">Delete</button></span><div class="chat-body clearfix"><div class="header"><small class=" text-muted"><span class="glyphicon glyphicon-time"></span>';
+    msgHTML += '" alt="User Avatar" class="img-circle"><button class="btn btn-default" type="button">Delete</button></span><div class="chat-body clearfix"><div class="header"><small><span class="glyphicon glyphicon-time"></span>';
     msgHTML += msgObject.timestamp;
     msgHTML += '</small><strong class="pull-right primary-font">';
     msgHTML += msgObject.user;
-    msgHTML += '</strong></div><p>';
+    msgHTML += '</strong></div><p class="msgFinder">';
     msgHTML += msgObject.message;
     msgHTML += '</p></div></li>';
     elementID.innerHTML += msgHTML;
+    btnClear.disabled = false;
+
   };
 
   oldCathy.removeMsgArray = function(index){

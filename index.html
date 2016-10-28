@@ -10,51 +10,50 @@
 <body>
 	<div class="container">
 		<div class="row">
-		    <div class="col-md-12">
-		        <div class="panel panel-default">
+	    <div class="col-md-12">
+        <div class="panel panel-default" id="divMain">
 
-		            <nav class="panel-heading" id="navMain">
-		                <div class="input-group col-md-12">
+          <nav class="panel-heading" id="navMain">
+            <div class="input-group col-md-12">
 
-		                	<div class="col-md-2">
+              <div class="col-md-2">
 								<img id="imgLogo" src="img/logo_default.png">
 							</div>
 
 							<div class="col-md-8">                           
-		                    	<input id="txtInput" type="text" class="form-control input-sm" placeholder="Type your message here..." vk_18c1e="subscribed" style="direction: rtl;" />
-		                    </div>
+                <input id="txtInput" type="text" class="form-control input-sm" placeholder="Type your message here..." vk_18c1e="subscribed" style="direction: rtl;" />
+              </div>
 
-		                    <div class="col-md-2">
-								<button class="btn btn-default" id="btnClear" type="button">
-		                        Clear Msgs                         
-		                        </button>
-		                    </div>
-		                </div>
+              <div class="col-md-2">
+								<button class="btn btn-default" id="btnClear" type="button">Clear Msgs</button>
+              </div>
+            </div>
 
-		                <div class="checkBoxs col-md-offset-4">
-                			<input id="checkTheme" type="checkbox" name="darkTheme" value="None">Dark Theme
-		                </div>
-		                <div class="checkBoxs col-md-offset-2">
-		                	<input id="checkLargeText" type="checkbox" name="largeText" value="None">Large Text
-		                </div>
-		            </nav>
-		            <div id="messages">
-		                <div class="panel-body">
-		                    <ul class="chat" id="ulMessages">
-		                        
-		                    </ul>
-		                </div>	
-	                </div>	            
-		        </div>
-		    </div>
+            <div class="checkBoxs col-md-offset-4">
+          		<input id="checkTheme" type="checkbox" name="darkTheme" value="None">
+          		<label for="checkTheme">Dark Theme</label>
+            </div>
+            <div class="checkBoxs col-md-offset-2">
+              <input id="checkLargeText" type="checkbox" name="largeText" value="None">
+              <label for="checkLargeText">Large Text</label>
+            </div>
+          </nav>
+          <div id="messages">
+            <div class="panel-body">
+              <ul class="chat" id="ulMessages">
+                      
+              </ul>
+            </div>
+          </div>
+					<footer class="panel-footer" id="footerMain">
+						&copy; gitHeadz 2016.
+					</footer>
+
+        </div>
+	    </div>
 		</div>
 	</div>
 
-	<div class="col-md-12 panel panel-heading">
-		<footer class="footerMain col-md-offset-6">
-			&copy; gitHeadz 2016.
-		</footer>
-	</div>
 
 	<script type="text/javascript" src="javascripts/JSONHandler.js"></script>
 	<script type="text/javascript" src="javascripts/readerWriter.js"></script>

@@ -29,6 +29,7 @@ txtInput.addEventListener("keyup", function(){
     var indexNum = Cathy.getMsgArray().length;
     var dateNow = new Date(Date.now());
     var userName = document.getElementById("userName").value;
+    if(userName === ''){userName = 'Guest';}
     var msgObject = { "user": userName, "timestamp": dateNow, "message": txtInput.value};
     Cathy.writeMsgDOM(ulMessages, msgObject, indexNum);
     Cathy.writeMsgArray(msgObject);

@@ -16,11 +16,11 @@ var Cathy = (function (oldCathy) {
     msgHTML += msgObject.user;
     msgHTML += '" alt="User Avatar" class="img-circle"><button class="btn btn-default" type="button">Delete</button></span><div class="chat-body clearfix"><div class="header"><small><span class="glyphicon glyphicon-time"></span>';
     msgHTML += msgObject.timestamp;
-    msgHTML += '</small><strong class="pull-right primary-font">';
+    msgHTML += '</small><p class="pull-right primary-font">';
     msgHTML += msgObject.user;
-    msgHTML += '</strong></div><p class="msgFinder">';
+    msgHTML += '</p></div><strong class="msgFinder">';
     msgHTML += msgObject.message;
-    msgHTML += '</p></div></li>';
+    msgHTML += '</strong></div></li>';
     elementID.innerHTML += msgHTML;
     btnClear.disabled = false;
 

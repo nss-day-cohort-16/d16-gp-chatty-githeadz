@@ -97,14 +97,13 @@ nav.navbar.navbar-default {
 .panel .slidedown .glyphicon, .chat .glyphicon {
   margin-right: 5px; }
 
-#imgLogo {
-  height: 50px; }
-
-#txtInput {
-  height: 50px; }
-
-#btnClear {
-  height: 50px; }
+#imgLogo,
+#txtInput,
+#userName,
+#btnClear,
+#btnTheme {
+  height: 50px;
+  width: 100%; }
 
 .checkBoxs {
   display: inline-block; }

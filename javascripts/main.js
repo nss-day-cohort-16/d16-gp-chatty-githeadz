@@ -6,7 +6,6 @@ var btnClear = document.getElementById("btnClear");
 var checkTheme = document.getElementById("checkTheme");
 var checkLargeText = document.getElementById("checkLargeText");
 
-var genericUser = "Guest";
 
 function initMsg(arrayOfMsgs){
   for(let i = 0; i < arrayOfMsgs.length; i++){
@@ -28,7 +27,9 @@ txtInput.addEventListener("keyup", function(){
       alert("Type Something....");
     } else {
     var indexNum = Cathy.getMsgArray().length;
-    var msgObject = { "user": genericUser, "timestamp": "0:00", "message": txtInput.value};
+    var dateNow = new Date(Date.now());
+    var userName = document.getElementById("userName").value;
+    var msgObject = { "user": userName, "timestamp": dateNow, "message": txtInput.value};
     Cathy.writeMsgDOM(ulMessages, msgObject, indexNum);
     Cathy.writeMsgArray(msgObject);
     txtInput.value = '';

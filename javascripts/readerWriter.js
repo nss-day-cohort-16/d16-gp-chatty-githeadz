@@ -1,5 +1,4 @@
 "use strict";
-console.log("Reader: ", Cathy);
 var Cathy = (function (oldCathy) {
   var msgArray = [];
 

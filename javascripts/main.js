@@ -3,9 +3,12 @@
 var ulMessages = document.getElementById("ulMessages");
 var txtInput = document.getElementById("txtInput");
 var btnClear = document.getElementById("btnClear");
-var checkTheme = document.getElementById("checkTheme");
-var checkLargeText = document.getElementById("checkLargeText");
-
+// var checkTheme = document.getElementById("checkTheme");
+// var checkLargeText = document.getElementById("checkLargeText");
+var btnLargeText = document.getElementById("btnLargeText");
+var btnColor = document.getElementById("btnColor");
+var bgPicker = document.getElementById("bgPicker");
+var txtPicker = document.getElementById("txtPicker");
 
 function initMsg(arrayOfMsgs){
   for(let i = 0; i < arrayOfMsgs.length; i++){
@@ -34,10 +37,10 @@ txtInput.addEventListener("keyup", function(){
     Cathy.writeMsgDOM(ulMessages, msgObject, indexNum);
     Cathy.writeMsgArray(msgObject);
     txtInput.value = '';
-    var lastMade = document.getElementsByTagName("button");
-    if (checkTheme.checked) {
-      lastMade[lastMade.length-1].classList.add("emdarkin");
-    }
+    // var lastMade = document.getElementsByTagName("button");
+    // if (checkTheme.checked) {
+    //   lastMade[lastMade.length-1].classList.add("emdarkin");
+    // }
     // if (checkLargeText.checked) {
     //   lastMade[lastMade.length-1].classList.add("embiggin");
     // }
@@ -50,7 +53,7 @@ btnClear.addEventListener("click", function () {
   ulMessages.innerHTML = '';
 });
 
-checkLargeText.addEventListener("click", function(){
+btnLargeText.addEventListener("click", function(){
   document.getElementsByTagName("body")[0].classList.toggle("embiggin");
   document.getElementsByTagName("input")[0].classList.toggle("btn-embiggin");
   // var tempBtns = document.getElementsByTagName("button");
@@ -59,13 +62,24 @@ checkLargeText.addEventListener("click", function(){
   // }
 });
 
-checkTheme.addEventListener("click", function(){
-  document.getElementsByTagName("body")[0].classList.toggle("emdarkin");
-  document.getElementById("messages").classList.toggle("emdarkin");
-  document.getElementById("ulMessages").parentElement.classList.toggle("emdarkin");
+btnColor.addEventListener("click", function(){
+  document.getElementById("myModal").firstElementChild.firstElementChild.style.color=txtPicker.value;
+  document.getElementById("myModal").firstElementChild.firstElementChild.style.background=bgPicker.value;
+  // document.getElementsByTagName("body")[0].style.color=txtPicker.value;
+  document.getElementsByTagName("body")[0].style.background=bgPicker.value;
+  document.getElementById("messages").style.color=txtPicker.value;
+  document.getElementById("messages").style.background=bgPicker.value;
+  document.getElementById("ulMessages").parentElement.style.color=txtPicker.value;
+  document.getElementById("ulMessages").parentElement.style.background=bgPicker.value;
   var tempBtns = document.getElementsByTagName("button");
-  for (let i = 1; i < tempBtns.length; i++){
-    tempBtns[i].classList.toggle("emdarkin");
+  for (let i = 6; i < tempBtns.length; i++){
+    tempBtns[i].style.color=txtPicker.value;
+    tempBtns[i].style.background=bgPicker.value;
+  }
+  var tempLis = document.getElementsByTagName("li");
+  for(let i = 0; i < tempLis.length; i++){
+    document.getElementsByTagName("li")[i].style.color=txtPicker.value;
+    document.getElementsByTagName("li")[i].style.background=bgPicker.value;
   }
 });
 

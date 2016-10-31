@@ -1,5 +1,4 @@
 "use strict";
-console.log("JSONHandler: ", Cathy);
 var Cathy = (function (oldCathy) {
 
   oldCathy.loadMessages = function(callbackFn){

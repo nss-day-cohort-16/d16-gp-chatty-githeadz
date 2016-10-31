@@ -23,7 +23,7 @@ var Cathy = (function (oldCathy) {
 
     msgHTML += '<li class="right clearfix" id="' + idCounter + '" style="color:' + txtPicker.value + '; background:' + bgPicker.value + '"><span class="chat-img pull-left"><img src="http://placehold.it/50/008844/fff&text=';
     msgHTML += initials;
-    msgHTML += '" alt="User Avatar" class="img-circle"></span><span class="chat-img pull-right"><button class="btn btn-default" type="button" style="color:' + txtPicker.value + '; background:' + bgPicker.value + '">Delete</button></span><div class="chat-body clearfix"><div class="header"><small><span class="glyphicon glyphicon-time"></span>';
+    msgHTML += '" alt="User Avatar" class="img-circle"></span><span class="chat-img pull-right"><button class="btn btn-default btnEdit" type="button" style="color:' + txtPicker.value + '; background:' + bgPicker.value + '">Edit</button></span><span class="chat-img pull-right"><button class="btn btn-default btnDelete" type="button" style="color:' + txtPicker.value + '; background:' + bgPicker.value + '">Delete</button></span><div class="chat-body clearfix"><div class="header"><small><span class="glyphicon glyphicon-time"></span>';
     msgHTML += msgObject.timestamp;
     msgHTML += '</small><p class="pull-right primary-font">';
     msgHTML += msgObject.user;

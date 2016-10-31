@@ -1,5 +1,4 @@
 "use strict";
-console.log("Deleter: ", Cathy);
 var Cathy = (function (oldCathy) {
 
   oldCathy.removeMsg = function(myElement){

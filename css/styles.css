@@ -97,14 +97,18 @@ nav.navbar.navbar-default {
 .panel .slidedown .glyphicon, .chat .glyphicon {
   margin-right: 5px; }
 
-#imgLogo {
-  height: 50px; }
+#imgLogo,
+#txtInput,
+#userName,
+#btnClear,
+#btnTheme {
+  height: 50px;
+  width: 100%; }
 
-#txtInput {
-  height: 50px; }
-
-#btnClear {
-  height: 50px; }
+nav div div.col-md-1,
+nav div div.col-md-2 {
+  padding-left: .25em;
+  padding-right: .25em; }
 
 .checkBoxs {
   display: inline-block; }
@@ -118,13 +122,6 @@ nav.navbar.navbar-default {
 
 .btn-embiggin {
   font-size: 1.25em; }
-
-.emdarkin {
-  background: #222;
-  color: #ddd; }
-
-.emdarkin p {
-  color: #ddd; }
 
 body {
   height: 100%; }
@@ -144,5 +141,9 @@ body {
 
 .container {
   margin-top: 1em; }
+
+.chat-img {
+  padding-right: 1em;
+  padding-left: 1em; }
 
 /*# sourceMappingURL=styles.css.map */

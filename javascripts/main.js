@@ -22,6 +22,7 @@ ulMessages.addEventListener("click", function(){
   if (event.target.innerHTML == 'Delete'){
     var msgElement = event.target.parentElement.parentElement;
     Cathy.removeMsg(msgElement);
+    footerMain.innerHTML = '<span class="pull-left">&copy; gitHeadz 2016.</span><span class="pull-right">Number of Messages: ' + Cathy.getMsgArray().length + '</span>';
   } else if (event.target.innerHTML == "Edit"){
     editToggle = true;
     txtInput.focus();

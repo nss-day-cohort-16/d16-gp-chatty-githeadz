@@ -3,12 +3,11 @@
 var ulMessages = document.getElementById("ulMessages");
 var txtInput = document.getElementById("txtInput");
 var btnClear = document.getElementById("btnClear");
-// var checkTheme = document.getElementById("checkTheme");
-// var checkLargeText = document.getElementById("checkLargeText");
 var btnLargeText = document.getElementById("btnLargeText");
 var btnColor = document.getElementById("btnColor");
 var bgPicker = document.getElementById("bgPicker");
 var txtPicker = document.getElementById("txtPicker");
+var footerMain = document.getElementById("footerMain");
 
 function initMsg(arrayOfMsgs){
   for(let i = 0; i < arrayOfMsgs.length; i++){
@@ -20,7 +19,8 @@ function initMsg(arrayOfMsgs){
 ulMessages.addEventListener("click", function(){
   if (event.target.innerHTML == 'Delete'){
     var msgElement = event.target.parentElement.parentElement;
-    Cathy.removeMsg(msgElement);    
+    Cathy.removeMsg(msgElement); 
+   
   }
 });
 
@@ -51,6 +51,8 @@ txtInput.addEventListener("keyup", function(){
 btnClear.addEventListener("click", function () {
   btnClear.disabled = true;
   ulMessages.innerHTML = '';
+  footerMain.innerHTML = '<span class="pull-left">&copy; gitHeadz 2016.</span><span class="pull-right">No Messages</span>';
+  Cathy.clearMsgArray();
 });
 
 btnLargeText.addEventListener("click", function(){

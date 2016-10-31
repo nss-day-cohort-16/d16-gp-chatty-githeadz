@@ -8,6 +8,8 @@ var btnColor = document.getElementById("btnColor");
 var bgPicker = document.getElementById("bgPicker");
 var txtPicker = document.getElementById("txtPicker");
 var footerMain = document.getElementById("footerMain");
+var editToggle = false;
+var editMessage;
 
 function initMsg(arrayOfMsgs){
   for(let i = 0; i < arrayOfMsgs.length; i++){
@@ -19,31 +21,40 @@ function initMsg(arrayOfMsgs){
 ulMessages.addEventListener("click", function(){
   if (event.target.innerHTML == 'Delete'){
     var msgElement = event.target.parentElement.parentElement;
-    Cathy.removeMsg(msgElement); 
-   
+    Cathy.removeMsg(msgElement);
+  } else if (event.target.innerHTML == "Edit"){
+    editToggle = true;
+    txtInput.focus();
+    txtInput.value = '';
+    editMessage = event.target.parentElement.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling;
   }
 });
 
 txtInput.addEventListener("keyup", function(){
-  if (event.which === 13){
-    if(txtInput.value === ''){
-      alert("Type Something....");
-    } else {
-    var indexNum = Cathy.getMsgArray().length;
-    var dateNow = new Date(Date.now());
-    var userName = document.getElementById("userName").value;
-    if(userName === ''){userName = 'Guest';}
-    var msgObject = { "user": userName, "timestamp": dateNow, "message": txtInput.value};
-    Cathy.writeMsgDOM(ulMessages, msgObject, indexNum);
-    Cathy.writeMsgArray(msgObject);
-    txtInput.value = '';
-    // var lastMade = document.getElementsByTagName("button");
-    // if (checkTheme.checked) {
-    //   lastMade[lastMade.length-1].classList.add("emdarkin");
-    // }
-    // if (checkLargeText.checked) {
-    //   lastMade[lastMade.length-1].classList.add("embiggin");
-    // }
+  if (!editToggle){
+    if (event.which === 13){
+      if(txtInput.value === ''){
+        alert("Type Something....");
+      } else {
+      var indexNum = Cathy.getMsgArray().length;
+      var dateNow = new Date(Date.now());
+      var userName = document.getElementById("userName").value;
+      if(userName === ''){userName = 'Guest';}
+      var msgObject = { "user": userName, "timestamp": dateNow, "message": txtInput.value};
+      Cathy.writeMsgDOM(ulMessages, msgObject, indexNum);
+      Cathy.writeMsgArray(msgObject);
+      txtInput.value = '';
+      }
+    }
+  } else {
+    if (event.which === 13){
+      if(txtInput.value === ''){
+        alert("Type Something....");
+      } else {
+        editMessage.innerHTML = txtInput.value;
+        editToggle = false;
+        txtInput.value = '';
+      }
     }
   }
 });
@@ -67,8 +78,9 @@ btnLargeText.addEventListener("click", function(){
 btnColor.addEventListener("click", function(){
   document.getElementById("myModal").firstElementChild.firstElementChild.style.color=txtPicker.value;
   document.getElementById("myModal").firstElementChild.firstElementChild.style.background=bgPicker.value;
-  // document.getElementsByTagName("body")[0].style.color=txtPicker.value;
-  document.getElementsByTagName("body")[0].style.background=bgPicker.value;
+  document.getElementsByTagName("body")[0].style.backgroundColor=txtPicker.value;
+  // document.getElementsByTagName("body")[0].style.backgroundColor=bgPicker.value;
+  // document.getElementsByTagName("body")[0].setAttribute(backgroundColor, bgPicker.value);
   document.getElementById("messages").style.color=txtPicker.value;
   document.getElementById("messages").style.background=bgPicker.value;
   document.getElementById("ulMessages").parentElement.style.color=txtPicker.value;

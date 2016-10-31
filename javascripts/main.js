@@ -67,8 +67,9 @@ btnLargeText.addEventListener("click", function(){
 btnColor.addEventListener("click", function(){
   document.getElementById("myModal").firstElementChild.firstElementChild.style.color=txtPicker.value;
   document.getElementById("myModal").firstElementChild.firstElementChild.style.background=bgPicker.value;
-  // document.getElementsByTagName("body")[0].style.color=txtPicker.value;
-  document.getElementsByTagName("body")[0].style.background=bgPicker.value;
+  document.getElementsByTagName("body")[0].style.backgroundColor=txtPicker.value;
+  // document.getElementsByTagName("body")[0].style.backgroundColor=bgPicker.value;
+  // document.getElementsByTagName("body")[0].setAttribute(backgroundColor, bgPicker.value);
   document.getElementById("messages").style.color=txtPicker.value;
   document.getElementById("messages").style.background=bgPicker.value;
   document.getElementById("ulMessages").parentElement.style.color=txtPicker.value;

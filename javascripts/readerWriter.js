@@ -48,7 +48,7 @@ var Cathy = (function (oldCathy) {
 
   oldCathy.clearMsgArray = function(){
     msgArray = [];
-  }
+  };
   return oldCathy;
 
 })(Cathy || {});

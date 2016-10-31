@@ -142,4 +142,8 @@ body {
 .container {
   margin-top: 1em; }
 
+.chat-img {
+  padding-right: 1em;
+  padding-left: 1em; }
+
 /*# sourceMappingURL=styles.css.map */

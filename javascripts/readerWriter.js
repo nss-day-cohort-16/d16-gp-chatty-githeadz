@@ -11,6 +11,7 @@ var Cathy = (function (oldCathy) {
   };
   
   oldCathy.writeMsgDOM = function(elementID, msgObject, idCounter){
+
     var msgHTML = '';
     var userName = msgObject.user.split(" ");
     var firstName = userName[0];
@@ -32,6 +33,11 @@ var Cathy = (function (oldCathy) {
     elementID.innerHTML += msgHTML;
     btnClear.disabled = false;
 
+    if (idCounter == 19) {
+      Cathy.removeMsg(elementID.firstElementChild);
+    }
+
+    footerMain.innerHTML = '<span class="pull-left">&copy; gitHeadz 2016.</span><span class="pull-right">Number of Messages: ' + (idCounter + 1) + '</span>';
   };
 
   oldCathy.removeMsgArray = function(index){
@@ -40,6 +46,9 @@ var Cathy = (function (oldCathy) {
     msgArray = tempArray1.concat(tempArray2);
   };
 
+  oldCathy.clearMsgArray = function(){
+    msgArray = [];
+  }
   return oldCathy;
 
 })(Cathy || {});

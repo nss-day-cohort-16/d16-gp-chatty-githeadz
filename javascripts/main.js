@@ -37,11 +37,32 @@ function initMsg(arrayOfMsgs){
 
 
 //delete individual message handler
-ulMessages.click(function(){
-  if (event.target.innerHTML == 'Delete'){
-    var msgElement = event.target.parentElement.parentElement;
+$(document).on("click", "#ulMessages", function(event) {
+  let target = $( event.target );
+  // console.log("target", target);
+  // console.log("event.target.innerHTML", event.target.innerHTML);
+  if (target.html('Delete')){
+
+
+    // console.log("event.target", event.target);
+
+
+
+
+    let msgElement = target.parents(".right");
+    console.log("msgElement", msgElement);
+    // event.target.parentElement.parentElement;
+    // i THINK that event.target.parentElement.parentElement is the message itself....so Im gonna target that... but I gotta find what the event handler is attached to.
+    //oh, duh, it's attached to ulMessages....
+
+    // var msgElement = event.target.parentElement.parentElement;
+
+
+
+
+//aha!!!! this next line is now sending the parent of the clicked delete button that is a list item to Cathy.removeMsg so that it can be removed!!!!!!!
     Cathy.removeMsg(msgElement);
-    footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****SCP REDUX****</span><span class="pull-right">Number of Messages: ' + Cathy.getMsgArray().length + '</span>');
+    footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****SAM REDUX****</span><span class="pull-right">Number of Messages: ' + Cathy.getMsgArray().length + '</span>');
   } else if (event.target.innerHTML == "Edit"){
     editToggle = true;
     txtInput.focus();
@@ -103,7 +124,7 @@ txtInput.keyup(function(){
 btnClear.click(function () {
   btnClear.disabled = true;
   ulMessages.html('');
-  footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****SCP REDUX****</span><span class="pull-right">No Messages</span>');
+  footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****SAM REDUX****</span><span class="pull-right">No Messages</span>');
   Cathy.clearMsgArray();
 });
 
@@ -139,3 +160,23 @@ btnColor.click(function(){
 });
 
 Cathy.loadMessages(initMsg);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

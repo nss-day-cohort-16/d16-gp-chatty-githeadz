@@ -4,9 +4,10 @@ var Cathy = (function (oldCathy) {
 
   oldCathy.getMsgArray = () => msgArray;
 
-  oldCathy.writeMsgArray = function(msgObject){
-    msgArray.push(msgObject);
-  };
+  oldCathy.writeMsgArray = (msgObject) => {msgArray.push(msgObject);};
+  // oldCathy.writeMsgArray = function(msgObject){
+  //   msgArray.push(msgObject);
+  // };
   
 
   //this function fills out the main chat box, INCLUDING the footer
@@ -28,20 +29,24 @@ var Cathy = (function (oldCathy) {
 
     btnClear.disabled = false;
  
-    if (idCounter == 19) {
+
+
+
+ // gonna termporarily disable this if statement which limits the message number to 20.
+//     if (idCounter == 19) {
 
 
 
 
-//////////////////////        THIS IS WHERE I'M AT     !!!!!!!!!!!!!!!
+// //////////////////////        THIS IS WHERE I'M AT     !!!!!!!!!!!!!!!
 
 
 
-      // Cathy.removeMsg($(elementID).children().eq(0));
-      Cathy.removeMsg(elementID.firstElementChild);
-    }
+//       // Cathy.removeMsg($(elementID).children().eq(0));
+//       Cathy.removeMsg(elementID.firstElementChild);
+//     }
 
-    footerMain.html(`<span class="pull-left">&copy; gitHeadz 2016. ****SCP REDUX****</span><span class="pull-right">Number of Messages: ${idCounter + 1}</span>`);
+    footerMain.html(`<span class="pull-left">&copy; gitHeadz 2016. ****SAM REDUX****</span><span class="pull-right">Number of Messages: ${idCounter + 1}</span>`);
   };
 
   oldCathy.removeMsgArray = function(index){

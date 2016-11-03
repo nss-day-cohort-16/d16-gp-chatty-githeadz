@@ -2,11 +2,20 @@
 var Cathy = (function (oldCathy) {
 
   oldCathy.removeMsg = function(myElement){
+
+
+
+    //this little chunk is gonna need to be changed too
     Cathy.removeMsgArray(parseInt(myElement.id));
-    ulMessages.removeChild(myElement);
+    //the message limiter also calls this function, but it's not what I'm looking for right now so I disabled it.
 
-    // so this is sending myElement (which is passed in by ????) to the method .removeChild
 
+
+
+
+
+    myElement.remove();
+    
     var tempArray = ulMessages.getElementsByTagName("li");
 
     for (let i = parseInt(myElement.id); i < tempArray.length; i++){

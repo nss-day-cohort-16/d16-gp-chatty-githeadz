@@ -1,20 +1,20 @@
 "use strict";
 
-var ulMessages = document.getElementById("ulMessages");
-var txtInput = document.getElementById("txtInput");
-var btnClear = document.getElementById("btnClear");
-var btnLargeText = document.getElementById("btnLargeText");
-var btnColor = document.getElementById("btnColor");
-var bgPicker = document.getElementById("bgPicker");
-var txtPicker = document.getElementById("txtPicker");
-var footerMain = document.getElementById("footerMain");
-var editToggle = false;
-var editMessage;
+let ulMessages = document.getElementById("ulMessages"),
+    txtInput = document.getElementById("txtInput"),
+    btnClear = document.getElementById("btnClear"),
+    btnLargeText = document.getElementById("btnLargeText"),
+    btnColor = document.getElementById("btnColor"),
+    bgPicker = document.getElementById("bgPicker"),
+    txtPicker = document.getElementById("txtPicker"),
+    footerMain = document.getElementById("footerMain"),
+    editToggle = false,
+    editMessage;
 
 function initMsg(arrayOfMsgs){
-  for(let i = 0; i < arrayOfMsgs.length; i++){
-    Cathy.writeMsgArray(arrayOfMsgs[i]);
-    Cathy.writeMsgDOM(ulMessages, arrayOfMsgs[i], i);
+  for(let i = 0; i < arrayOfMsgs.messages.length; i++){
+    Cathy.writeMsgArray(arrayOfMsgs.messages[i]);
+    Cathy.writeMsgDOM(ulMessages, arrayOfMsgs.messages[i], i);
   }
 }
 

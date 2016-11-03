@@ -29,34 +29,32 @@ let ulMessages = $("#ulMessages"),
 
 //runs when page is initialized to process messages.json, adding the array contents to msgArray(found in readerWriter.js) and inserting it into the DOM
 function initMsg(arrayOfMsgs){
-  for(let i = 0; i < arrayOfMsgs.messages.length; i++){
-    Cathy.writeMsgArray(arrayOfMsgs.messages[i]);
-    Cathy.writeMsgDOM(ulMessages, arrayOfMsgs.messages[i], i);
-  }
+  console.log("arrayOfMsgs", arrayOfMsgs);
+  arrayOfMsgs.messages.forEach(function(message, index) {
+    Cathy.writeMsgArray(message);
+    Cathy.writeMsgDOM(ulMessages, message, index);
+  });
 }
+
+// function initMsg(arrayOfMsgs){
+//   for(let i = 0; i < arrayOfMsgs.messages.length; i++){
+//     Cathy.writeMsgArray(arrayOfMsgs.messages[i]);
+//     Cathy.writeMsgDOM(ulMessages, arrayOfMsgs.messages[i], i);
+//   }
+// }
 
 
 //delete individual message handler
 $(document).on("click", "#ulMessages", function(event) {
   let target = $( event.target );
-  // console.log("target", target);
-  // console.log("event.target.innerHTML", event.target.innerHTML);
   if (target.html() === 'Delete'){
 
-
-    // console.log("event.target", event.target);
 
 
 
 
     let msgElement = target.parents(".right");
-    console.log("msgElement", msgElement);
-    // event.target.parentElement.parentElement;
-    // i THINK that event.target.parentElement.parentElement is the message itself....so Im gonna target that... but I gotta find what the event handler is attached to.
-    //oh, duh, it's attached to ulMessages....
-
-    // var msgElement = event.target.parentElement.parentElement;
-
+    // console.log("msgElement", msgElement);
 
 
 

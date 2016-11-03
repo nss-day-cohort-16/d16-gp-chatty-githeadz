@@ -5,16 +5,24 @@ var Cathy = (function (oldCathy) {
   oldCathy.getMsgArray = () => msgArray;
 
   oldCathy.writeMsgArray = (msgObject) => {msgArray.push(msgObject);};
-  // oldCathy.writeMsgArray = function(msgObject){
-  //   msgArray.push(msgObject);
-  // };
-  
 
   //this function fills out the main chat box, INCLUDING the footer
   oldCathy.writeMsgDOM = function(elementID, msgObject, idCounter){
 
     let msgHTML = '',
+
+
+
+    //sooooo msgObject is registering as undefined.... somewhere the chain is broken
+
+//**********************************************************************************
+    //time to find where Cathy.writeMsgDom is being called. Hold onto your pants, Alice
+    //error is popping up when page loads.... going to check there first
     userName = msgObject.user.split(" "),
+
+
+
+
     firstName = userName[0],
     lastName = userName[userName.length - 1];
 
@@ -50,14 +58,34 @@ var Cathy = (function (oldCathy) {
   };
 
   oldCathy.removeMsgArray = function(index){
-    let tempArray1 = msgArray.slice(0, index);
-    let tempArray2 = msgArray.slice(index + 1);
+    let tempArray1 = msgArray.slice(0, index),
+        tempArray2 = msgArray.slice(index + 1);
     msgArray = tempArray1.concat(tempArray2);
   };
 
-  oldCathy.clearMsgArray = function(){
-    msgArray = [];
-  };
+  oldCathy.clearMsgArray = () => {msgArray = [];};
+ 
   return oldCathy;
 
 })(Cathy || {});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

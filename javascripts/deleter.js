@@ -8,12 +8,6 @@ var Cathy = (function (oldCathy) {
     //this little chunk is gonna need to be changed too
     Cathy.removeMsgArray(parseInt(myElement.id));
     //the message limiter also calls this function, but it's not what I'm looking for right now so I disabled it.
-
-
-
-
-
-
     myElement.remove();
     
     var tempArray = ulMessages.getElementsByTagName("li");

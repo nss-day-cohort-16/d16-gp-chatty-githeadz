@@ -41,7 +41,7 @@ $(document).on("click", "#ulMessages", function(event) {
   let target = $( event.target );
   // console.log("target", target);
   // console.log("event.target.innerHTML", event.target.innerHTML);
-  if (target.html('Delete')){
+  if (target.html() === 'Delete'){
 
 
     // console.log("event.target", event.target);

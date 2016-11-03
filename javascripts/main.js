@@ -1,31 +1,31 @@
 "use strict";
 
-// let ulMessages = $("#ulMessages"),
-//     txtInput = $("#txtInput"),
-//     btnClear = $("#btnClear"),
-//     btnLargeText = $("#btnLargeText"),
-//     btnColor = $("#btnColor"),
-//     bgPicker = $("#bgPicker"),
-//     txtPicker = $("#txtPicker"),
-//     footerMain = $("#footerMain"),
-//     editToggle = false,
-//     editMessage;
+let ulMessages = $("#ulMessages"),
+    txtInput = $("#txtInput"),
+    btnClear = $("#btnClear"),
+    btnLargeText = $("#btnLargeText"),
+    btnColor = $("#btnColor"),
+    bgPicker = $("#bgPicker"),
+    txtPicker = $("#txtPicker"),
+    footerMain = $("#footerMain"),
+    editToggle = false,
+    editMessage;
 
 
 
 //ORIGINAL CODE BELOW... i'm afraid that changing all these to jQuery might totally screw up their properties/how they're used later... we shall see... I wanted to save the original code just in case
 
 
-let ulMessages = document.getElementById("ulMessages"),
-    txtInput = document.getElementById("txtInput"),
-    btnClear = document.getElementById("btnClear"),
-    btnLargeText = document.getElementById("btnLargeText"),
-    btnColor = document.getElementById("btnColor"),
-    bgPicker = document.getElementById("bgPicker"),
-    txtPicker = document.getElementById("txtPicker"),
-    footerMain = document.getElementById("footerMain"),
-    editToggle = false,
-    editMessage;
+// let ulMessages = document.getElementById("ulMessages"),
+//     txtInput = document.getElementById("txtInput"),
+//     btnClear = document.getElementById("btnClear"),
+//     btnLargeText = document.getElementById("btnLargeText"),
+//     btnColor = document.getElementById("btnColor"),
+//     bgPicker = document.getElementById("bgPicker"),
+//     txtPicker = document.getElementById("txtPicker"),
+//     footerMain = document.getElementById("footerMain"),
+//     editToggle = false,
+//     editMessage;
 
 //runs when page is initialized to process messages.json, adding the array contents to msgArray(found in readerWriter.js) and inserting it into the DOM
 function initMsg(arrayOfMsgs){
@@ -35,11 +35,13 @@ function initMsg(arrayOfMsgs){
   }
 }
 
-ulMessages.addEventListener("click", function(){
+
+//delete individual message handler
+ulMessages.click(function(){
   if (event.target.innerHTML == 'Delete'){
     var msgElement = event.target.parentElement.parentElement;
     Cathy.removeMsg(msgElement);
-    footerMain.innerHTML = '<span class="pull-left">&copy; gitHeadz 2016. ****SCP REDUX****</span><span class="pull-right">Number of Messages: ' + Cathy.getMsgArray().length + '</span>';
+    footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****SCP REDUX****</span><span class="pull-right">Number of Messages: ' + Cathy.getMsgArray().length + '</span>');
   } else if (event.target.innerHTML == "Edit"){
     editToggle = true;
     txtInput.focus();
@@ -53,7 +55,7 @@ ulMessages.addEventListener("click", function(){
 
 
 //adds an event listener to txtInput that triggers an anonymous function 
-txtInput.addEventListener("keyup", function(){
+txtInput.keyup(function(){
   //editToggle is being inverted here.... I think... don't know what that does, though.
   //it seems like this is saying "if the editToggle inverse is true, then execute the first chunk. else, execute the second chunk.".... soooo if editToggle is false, execute the first chunk... but what is editToggle?
   //ok, I see now. editToggle is a variable defined in the beginning of main.js.. it starts out set to false... however, if the user presses a message's "Edit" button, it is set to true.
@@ -74,10 +76,10 @@ txtInput.addEventListener("keyup", function(){
       var dateNow = new Date(Date.now());
       var userName = document.getElementById("userName").value;
       if(userName === ''){userName = 'Guest';}
-      var msgObject = { "user": userName, "timestamp": dateNow, "message": txtInput.value};
+      var msgObject = { "user": userName, "timestamp": dateNow, "message": txtInput.val()};
       Cathy.writeMsgDOM(ulMessages, msgObject, indexNum);
       Cathy.writeMsgArray(msgObject);
-      txtInput.value = '';
+      txtInput.val('');
       }
     }
 
@@ -98,14 +100,14 @@ txtInput.addEventListener("keyup", function(){
   }
 });
 
-btnClear.addEventListener("click", function () {
+btnClear.click(function () {
   btnClear.disabled = true;
-  ulMessages.innerHTML = '';
-  footerMain.innerHTML = '<span class="pull-left">&copy; gitHeadz 2016. ****SCP REDUX****</span><span class="pull-right">No Messages</span>';
+  ulMessages.html('');
+  footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****SCP REDUX****</span><span class="pull-right">No Messages</span>');
   Cathy.clearMsgArray();
 });
 
-btnLargeText.addEventListener("click", function(){
+btnLargeText.click(function(){
   document.getElementsByTagName("body")[0].classList.toggle("embiggin");
   document.getElementsByTagName("input")[0].classList.toggle("btn-embiggin");
   // var tempBtns = document.getElementsByTagName("button");
@@ -114,7 +116,7 @@ btnLargeText.addEventListener("click", function(){
   // }
 });
 
-btnColor.addEventListener("click", function(){
+btnColor.click(function(){
   document.getElementById("myModal").firstElementChild.firstElementChild.style.color=txtPicker.value;
   document.getElementById("myModal").firstElementChild.firstElementChild.style.background=bgPicker.value;
   document.getElementsByTagName("body")[0].style.backgroundColor=txtPicker.value;

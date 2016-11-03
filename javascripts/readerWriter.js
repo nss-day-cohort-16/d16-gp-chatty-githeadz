@@ -8,6 +8,8 @@ var Cathy = (function (oldCathy) {
     msgArray.push(msgObject);
   };
   
+
+  //this function fills out the main chat box, INCLUDING the footer
   oldCathy.writeMsgDOM = function(elementID, msgObject, idCounter){
 
     let msgHTML = '',
@@ -39,7 +41,7 @@ var Cathy = (function (oldCathy) {
       Cathy.removeMsg(elementID.firstElementChild);
     }
 
-    footerMain.innerHTML = `<span class="pull-left">&copy; gitHeadz 2016.</span><span class="pull-right">Number of Messages: ${idCounter + 1}</span>`;
+    footerMain.innerHTML = `<span class="pull-left">&copy; gitHeadz 2016. ****SCP REDUX****</span><span class="pull-right">Number of Messages: ${idCounter + 1}</span>`;
   };
 
   oldCathy.removeMsgArray = function(index){

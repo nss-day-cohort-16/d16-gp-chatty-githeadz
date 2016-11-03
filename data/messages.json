@@ -1,9 +1,9 @@
 {
 	"messages": [
-		{ "user": "Hillary Clifton", "timestamp": "Wed Oct 05 2016 21:33:26 GMT-0400 (Eastern Daylight Time)", "message":"Hello, World."},
-		{ "user": "John Depp", "timestamp": "Mon Aug 05 2013 13:46:46 GMT-0700 (Pacific Daylight Time)", "message": "A/S/L? 12/m/fl here!"},
-		{ "user": "Ronald Schwarzenegger", "timestamp": "Wed Apr 08 2026 16:53:26 GMT-0700 (Pacific Daylight Time)", "message": "I came here from Reddit."},
-		{ "user": "Dolan Mills", "timestamp": "Sun Sep 22  335 22:49:19 GMT-0500 (Central Daylight Time)", "message": "The sunlight, it burnses us, precious."},
-		{ "user": "Axe el Rose", "timestamp": "Fri Sep 08 2006 12:30:40 GMT-0100 (French Daylight Time)", "message": "WELCOME TO THE JUNGLE, GET READY TO DIE."}
+		{ "user": "Hillary Clifton", "timestamp": "Wed Oct 05 2016 21:33:26 GMT-0400 (Eastern Daylight Time)", "message":"Bonjuor, World."},
+		{ "user": "John Depp", "timestamp": "Mon Aug 05 2013 13:46:46 GMT-0700 (Pacific Daylight Time)", "message": "A/S/L? 345/m/transylvania here!"},
+		{ "user": "Ronald Schwarzenegger", "timestamp": "Wed Apr 08 2026 16:53:26 GMT-0700 (Pacific Daylight Time)", "message": "I came heeyuuh from Reddit."},
+		{ "user": "Dolan Mills", "timestamp": "Sun Sep 22  335 22:49:19 GMT-0500 (Central Daylight Time)", "message": "Tricksy developers."},
+		{ "user": "Axe el Rose", "timestamp": "Fri Sep 08 2006 12:30:40 GMT-0100 (French Daylight Time)", "message": "WELCOME TO THE JUNGLE, WE HAVE BANANA SMOOTHIES."}
 	]
 }

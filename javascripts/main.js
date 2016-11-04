@@ -29,7 +29,6 @@ let ulMessages = $("#ulMessages"),
 
 //runs when page is initialized to process messages.json, adding the array contents to msgArray(found in readerWriter.js) and inserting it into the DOM
 function initMsg(arrayOfMsgs){
-  console.log("arrayOfMsgs", arrayOfMsgs);
   arrayOfMsgs.messages.forEach(function(message, index) {
     Cathy.writeMsgArray(message);
     Cathy.writeMsgDOM(ulMessages, message, index);
@@ -127,33 +126,51 @@ btnClear.click(function () {
 });
 
 btnLargeText.click(function(){
-  document.getElementsByTagName("body")[0].classList.toggle("embiggin");
-  document.getElementsByTagName("input")[0].classList.toggle("btn-embiggin");
-  // var tempBtns = document.getElementsByTagName("button");
-  // for (let i = 0; i < tempBtns.length; i++){
-  //   tempBtns[i].classList.toggle("btn-embiggin");
-  // }
+  $("body").toggleClass("embiggin");
+  $("input").toggleClass("btn-embiggin");
 });
 
+
+
+
+
+
+
+
+
 btnColor.click(function(){
-  document.getElementById("myModal").firstElementChild.firstElementChild.style.color=txtPicker.value;
-  document.getElementById("myModal").firstElementChild.firstElementChild.style.background=bgPicker.value;
-  document.getElementsByTagName("body")[0].style.backgroundColor=txtPicker.value;
-  // document.getElementsByTagName("body")[0].style.backgroundColor=bgPicker.value;
-  // document.getElementsByTagName("body")[0].setAttribute(backgroundColor, bgPicker.value);
-  document.getElementById("messages").style.color=txtPicker.value;
-  document.getElementById("messages").style.background=bgPicker.value;
-  document.getElementById("ulMessages").parentElement.style.color=txtPicker.value;
-  document.getElementById("ulMessages").parentElement.style.background=bgPicker.value;
-  var tempBtns = document.getElementsByTagName("button");
-  for (let i = 6; i < tempBtns.length; i++){
-    tempBtns[i].style.color=txtPicker.value;
-    tempBtns[i].style.background=bgPicker.value;
+  let $modal = $("#myModal").find(".modal-content"),
+  $body = $("body"),
+  $messages = ("#messages"),
+  $ulMessages = $("#ulMessages"),
+  $heading = $(".panel-heading"),
+  $footer = $(".panel-footer"),
+  $tempBtns = $("button");
+  
+  $modal.css("color", txtPicker.val());
+  $modal.css("background", bgPicker.val());
+  $body.css("background-color", txtPicker.val());
+  $("#messages").css("color", txtPicker.val());           //for some reason, I can't  
+  $("#messages").css("background", bgPicker.val());       //refer to $messages properly
+  $heading.css("color", txtPicker.val());
+  $heading.css("background", bgPicker.val());
+  $footer.css("color", txtPicker.val());
+  $footer.css("background", bgPicker.val());
+  $ulMessages.parent().css("color", txtPicker.val());
+  $ulMessages.parent().css("background", bgPicker.val());
+
+  
+  // for (let i = 6; i < $tempBtns.length; i++){
+  for (let i = 0; i < $tempBtns.length; i++){
+    $tempBtns.eq(i).css("color", txtPicker.val());
+    $tempBtns.eq(i).css("background", bgPicker.val());
   }
-  var tempLis = document.getElementsByTagName("li");
-  for(let i = 0; i < tempLis.length; i++){
-    document.getElementsByTagName("li")[i].style.color=txtPicker.value;
-    document.getElementsByTagName("li")[i].style.background=bgPicker.value;
+  
+  let $tempLis = $("li");
+  
+  for(let i = 0; i < $tempLis.length; i++){
+    $tempLis.eq(i).css("color", txtPicker.val());
+    $tempLis.eq(i).css("background", bgPicker.val());
   }
 });
 

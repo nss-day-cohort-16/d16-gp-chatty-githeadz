@@ -7,12 +7,7 @@ var Cathy = (function (oldCathy) {
 
     Cathy.removeMsgArray(parseInt(myElement[0].id), $element);
 
-    //the message limiter also calls this function, but it's not what I'm looking for right now so I disabled it.
     myElement.remove();
-    
-
-
-
     // I'm pretty sure that tempArray is not used anywhere relevant to the app
 
     // var tempArray = $("li");
@@ -24,5 +19,3 @@ var Cathy = (function (oldCathy) {
   return oldCathy;
 
 })(Cathy || {});
-
-

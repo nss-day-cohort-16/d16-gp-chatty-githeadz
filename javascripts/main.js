@@ -10,24 +10,6 @@ let ulMessages = $("#ulMessages"),
     footerMain = $("#footerMain"),
     editToggle = false,
     editMessage;
-
-
-
-//ORIGINAL CODE BELOW... i'm afraid that changing all these to jQuery might totally screw up their properties/how they're used later... we shall see... I wanted to save the original code just in case
-
-
-// let ulMessages = document.getElementById("ulMessages"),
-//     txtInput = document.getElementById("txtInput"),
-//     btnClear = document.getElementById("btnClear"),
-//     btnLargeText = document.getElementById("btnLargeText"),
-//     btnColor = document.getElementById("btnColor"),
-//     bgPicker = document.getElementById("bgPicker"),
-//     txtPicker = document.getElementById("txtPicker"),
-//     footerMain = document.getElementById("footerMain"),
-//     editToggle = false,
-//     editMessage;
-
-//runs when page is initialized to process messages.json, adding the array contents to msgArray(found in readerWriter.js) and inserting it into the DOM
 function initMsg(arrayOfMsgs){
   arrayOfMsgs.messages.forEach(function(message, index) {
     Cathy.writeMsgArray(message);
@@ -63,21 +45,14 @@ $(document).on("click", "#ulMessages", function(event) {
   } else if (event.target.innerHTML == "Edit"){
     editToggle = true;
     txtInput.focus();
-    txtInput.value = '';
+    txtInput.val('');
     editMessage = event.target.parentElement.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling;
   }
 });
 
 
 //I would like this next chunk of code to not be anonymous. Instead, I would like to make it so that both txtInput AND #userName trigger this function when they are clicked.
-
-
-//adds an event listener to txtInput that triggers an anonymous function 
 txtInput.keyup(function(){
-  //editToggle is being inverted here.... I think... don't know what that does, though.
-  //it seems like this is saying "if the editToggle inverse is true, then execute the first chunk. else, execute the second chunk.".... soooo if editToggle is false, execute the first chunk... but what is editToggle?
-  //ok, I see now. editToggle is a variable defined in the beginning of main.js.. it starts out set to false... however, if the user presses a message's "Edit" button, it is set to true.
-  //So, this next if statement says that, once this anonymous function is triggered, if the edit button was just pressed, run the second chunk of code, which either prompts the user to type something or updates the contents of whatever the current editMessage is to whatever the user typed...
   //I'd like to change this so that it opens a new "edit" window for the user, with a text input box that is pre-populated with the contents of editMessage, instead of focusing on the main message input and starting with a blank value.
   if (!editToggle){
     //event.which is the same as event.keyCode
@@ -87,14 +62,14 @@ txtInput.keyup(function(){
         //  if enter was pressed, and the edit button was NOT "engaged" sends the txtInput.value to both Cathy.writeMsgArray and Cathy.writeMsgDom. It then sets txtInput.value to an empty string.
         //however, if enter is pressed and txtInput.value is empty, it alerts the user "Type Something...."
     if (event.which === 13){
-      if(txtInput.value === ''){
+      if(txtInput.val() === ''){
         alert("Type Something....");
       } else {
-      var indexNum = Cathy.getMsgArray().length;
-      var dateNow = new Date(Date.now());
-      var userName = document.getElementById("userName").value;
+      let indexNum = Cathy.getMsgArray().length;
+      let dateNow = new Date(Date.now());
+      let userName = document.getElementById("userName").value;
       if(userName === ''){userName = 'Guest';}
-      var msgObject = { "user": userName, "timestamp": dateNow, "message": txtInput.val()};
+      let msgObject = { "user": userName, "timestamp": dateNow, "message": txtInput.val()};
       Cathy.writeMsgDOM(ulMessages, msgObject, indexNum);
       Cathy.writeMsgArray(msgObject);
       txtInput.val('');
@@ -107,12 +82,12 @@ txtInput.keyup(function(){
     //this else statement either prompts the user to type something or changes the innerHTML of editMessage to txtInput.value... it then set editToggle to false, thus "disengaging" the edit button.
   } else {
     if (event.which === 13){
-      if(txtInput.value === ''){
+      if(txtInput.val() === ''){
         alert("Type Something....");
       } else {
-        editMessage.innerHTML = txtInput.value;
+        editMessage.innerHTML = txtInput.val();
         editToggle = false;
-        txtInput.value = '';
+        txtInput.val('');
       }
     }
   }

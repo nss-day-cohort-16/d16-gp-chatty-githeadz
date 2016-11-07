@@ -25,11 +25,9 @@ var Cathy = (function (oldCathy) {
 
 
 
- // gonna termporarily disable this if statement which limits the message number to 20.
-    // if (idCounter == 19) {
-    //   // Cathy.removeMsg($(elementID).children().eq(0));
-    //   Cathy.removeMsg(elementID.firstElementChild);
-    // }
+    if (idCounter == 19) {
+      Cathy.removeMsg($(elementID).children().eq(0));
+    }
 
 
 

@@ -8,6 +8,7 @@ let ulMessages = $("#ulMessages"),
     bgPicker = $("#bgPicker"),
     txtPicker = $("#txtPicker"),
     footerMain = $("#footerMain"),
+    $userName = $("#userName"),
     editToggle = false,
     editMessage;
 function initMsg(arrayOfMsgs){
@@ -17,50 +18,27 @@ function initMsg(arrayOfMsgs){
   });
 }
 
-// function initMsg(arrayOfMsgs){
-//   for(let i = 0; i < arrayOfMsgs.messages.length; i++){
-//     Cathy.writeMsgArray(arrayOfMsgs.messages[i]);
-//     Cathy.writeMsgDOM(ulMessages, arrayOfMsgs.messages[i], i);
-//   }
-// }
-
-
 //delete individual message handler
 $(document).on("click", "#ulMessages", function(event) {
   let target = $( event.target );
   if (target.html() === 'Delete'){
-
-
-
-
-
     let msgElement = target.parents(".right");
-    // console.log("msgElement", msgElement);
-
-
-
-//aha!!!! this next line is now sending the parent of the clicked delete button that is a list item to Cathy.removeMsg so that it can be removed!!!!!!!
     Cathy.removeMsg(msgElement);
-    footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****SAM REDUX****</span><span class="pull-right">Number of Messages: ' + Cathy.getMsgArray().length + '</span>');
+    footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****Sam Phillips jQuery Edition****</span><span class="pull-right">Number of Messages: ' + Cathy.getMsgArray().length + '</span>');
   } else if (event.target.innerHTML == "Edit"){
     editToggle = true;
     txtInput.focus();
     txtInput.val('');
-    editMessage = event.target.parentElement.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling;
+    editMessage = $(event.target).parents("li").find("strong");
   }
 });
 
+txtInput.keyup(inputHandler);
+$userName.keyup(inputHandler);
 
-//I would like this next chunk of code to not be anonymous. Instead, I would like to make it so that both txtInput AND #userName trigger this function when they are clicked.
-txtInput.keyup(function(){
+function inputHandler(event) {
   //I'd like to change this so that it opens a new "edit" window for the user, with a text input box that is pre-populated with the contents of editMessage, instead of focusing on the main message input and starting with a blank value.
   if (!editToggle){
-    //event.which is the same as event.keyCode
-
-
-
-        //  if enter was pressed, and the edit button was NOT "engaged" sends the txtInput.value to both Cathy.writeMsgArray and Cathy.writeMsgDom. It then sets txtInput.value to an empty string.
-        //however, if enter is pressed and txtInput.value is empty, it alerts the user "Type Something...."
     if (event.which === 13){
       if(txtInput.val() === ''){
         alert("Type Something....");
@@ -75,28 +53,24 @@ txtInput.keyup(function(){
       txtInput.val('');
       }
     }
-
-
-
-
-    //this else statement either prompts the user to type something or changes the innerHTML of editMessage to txtInput.value... it then set editToggle to false, thus "disengaging" the edit button.
   } else {
     if (event.which === 13){
       if(txtInput.val() === ''){
         alert("Type Something....");
       } else {
-        editMessage.innerHTML = txtInput.val();
+
+        editMessage.html(txtInput.val());
         editToggle = false;
         txtInput.val('');
       }
     }
   }
-});
+}
 
 btnClear.click(function () {
   btnClear.disabled = true;
   ulMessages.html('');
-  footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****SAM REDUX****</span><span class="pull-right">No Messages</span>');
+  footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****Sam Phillips jQuery Edition****</span><span class="pull-right">No Messages</span>');
   Cathy.clearMsgArray();
 });
 

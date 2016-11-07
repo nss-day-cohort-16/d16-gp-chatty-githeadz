@@ -36,7 +36,7 @@ var Cathy = (function (oldCathy) {
 
 
 
-    footerMain.html(`<span class="pull-left">&copy; gitHeadz 2016. ****SAM REDUX****</span><span class="pull-right">Number of Messages: ${idCounter + 1}</span>`);
+    footerMain.html(`<span class="pull-left">&copy; gitHeadz 2016. ****Sam Phillips jQuery Edition****</span><span class="pull-right">Number of Messages: ${idCounter + 1}</span>`);
   };
 
   oldCathy.removeMsgArray = function(index, $element){

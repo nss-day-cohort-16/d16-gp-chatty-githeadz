@@ -46,12 +46,12 @@ function initMsg(arrayOfMsgs){
 //     }
 //   } else {
 //     if (event.which === 13){
-//       if(txtInput.val() === ''){
+//       if(editInput.val() === ''){
 //         alert("Type Something....");
 //       } else {
 //         editMessage.html(editInput.val());
 //         editToggle = false;
-//         txtInput.val('');
+//         editInput.val('');
 //       }
 //     }
 //   }
@@ -103,17 +103,23 @@ function inputHandler(event) {
 //     let msgElement = target.parents(".right");
 //     Cathy.removeMsg(msgElement);
 //     footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****Sam Phillips jQuery Edition****</span><span class="pull-right">Number of Messages: ' + Cathy.getMsgArray().length + '</span>');
-//   } else if ($(event.target).html() == "Edit"){
+//   } else if (target.html() == "Edit"){
 //     let $messageContents = $(event.target).parents("li").find("strong");
 //     editToggle = true;
-//     txtInput.focus();
-//     txtInput.val($messageContents.html());
+//     editInput.val($messageContents.html());
 //     editMessage = $messageContents;
+//     editInput.focus();
 //   }
 // });
 
 // txtInput.keyup(inputHandler);
 // $userName.keyup(inputHandler);
+// editInput.keyup(inputHandler);
+
+// $("#editModal").on('shown.bs.modal', function () {
+//   editInput.focus();
+// });
+
 
 
 
@@ -165,6 +171,7 @@ btnLargeText.click(function(){
 
 btnColor.click(function(){
   let $modal = $("#myModal").find(".modal-content"),
+  $editModal = $("#editModal").find(".modal-content"),
   $body = $("body"),
   $messages = $("#messages"),
   $ulMessages = $("#ulMessages"),
@@ -174,13 +181,20 @@ btnColor.click(function(){
   
   $modal.css("color", txtPicker.val());
   $modal.css("background", bgPicker.val());
+
+  $editModal.css("color", txtPicker.val());
+  $editModal.css("background", bgPicker.val());
+
+
   $body.css("background-color", txtPicker.val());
   $messages.css("color", txtPicker.val());             
   $messages.css("background", bgPicker.val());
-  $heading.css("color", txtPicker.val());
-  $heading.css("background", bgPicker.val());
-  $footer.css("color", txtPicker.val());
-  $footer.css("background", bgPicker.val());
+
+  // $heading.css("color", txtPicker.val());
+  // $heading.css("background", bgPicker.val());
+  // $footer.css("color", txtPicker.val());
+  // $footer.css("background", bgPicker.val());
+  
   $ulMessages.parent().css("color", txtPicker.val());
   $ulMessages.parent().css("background", bgPicker.val());
 

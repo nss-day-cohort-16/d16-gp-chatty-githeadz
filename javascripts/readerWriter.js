@@ -26,10 +26,10 @@ var Cathy = (function (oldCathy) {
 
 
  // gonna termporarily disable this if statement which limits the message number to 20.
-//     if (idCounter == 19) {
-//       // Cathy.removeMsg($(elementID).children().eq(0));
-//       Cathy.removeMsg(elementID.firstElementChild);
-//     }
+    // if (idCounter == 19) {
+    //   // Cathy.removeMsg($(elementID).children().eq(0));
+    //   Cathy.removeMsg(elementID.firstElementChild);
+    // }
 
 
 
@@ -39,12 +39,9 @@ var Cathy = (function (oldCathy) {
     footerMain.html(`<span class="pull-left">&copy; gitHeadz 2016. ****Sam Phillips jQuery Edition****</span><span class="pull-right">Number of Messages: ${idCounter + 1}</span>`);
   };
 
-  oldCathy.removeMsgArray = function(index, $element){
+  oldCathy.removeMsgArray = function(id, $element){
     msgArray = $.grep(msgArray, function(message, n) {
-    
-       return message.message === $element.find("strong").html();
-//now works, but only if there are no identical messages.... gonna try to filter by both message AND timestamp now....
-//forget that, just spent an hour trying to make it work with no headway. For now, let's just hope that no messages have the same content
+       return n === id;
     }, true);
   };
   oldCathy.clearMsgArray = () => {msgArray = [];};

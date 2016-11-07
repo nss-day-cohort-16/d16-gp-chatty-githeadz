@@ -90,7 +90,7 @@ btnLargeText.click(function(){
 btnColor.click(function(){
   let $modal = $("#myModal").find(".modal-content"),
   $body = $("body"),
-  $messages = ("#messages"),
+  $messages = $("#messages"),
   $ulMessages = $("#ulMessages"),
   $heading = $(".panel-heading"),
   $footer = $(".panel-footer"),
@@ -99,8 +99,8 @@ btnColor.click(function(){
   $modal.css("color", txtPicker.val());
   $modal.css("background", bgPicker.val());
   $body.css("background-color", txtPicker.val());
-  $("#messages").css("color", txtPicker.val());           //for some reason, I can't  
-  $("#messages").css("background", bgPicker.val());       //refer to $messages properly
+  $messages.css("color", txtPicker.val());             
+  $messages.css("background", bgPicker.val());
   $heading.css("color", txtPicker.val());
   $heading.css("background", bgPicker.val());
   $footer.css("color", txtPicker.val());
@@ -109,7 +109,6 @@ btnColor.click(function(){
   $ulMessages.parent().css("background", bgPicker.val());
 
   
-  // for (let i = 6; i < $tempBtns.length; i++){
   for (let i = 0; i < $tempBtns.length; i++){
     $tempBtns.eq(i).css("color", txtPicker.val());
     $tempBtns.eq(i).css("background", bgPicker.val());

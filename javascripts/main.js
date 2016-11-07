@@ -2,6 +2,9 @@
 
 let ulMessages = $("#ulMessages"),
     txtInput = $("#txtInput"),
+
+    editInput = $("#editInput"),
+
     btnClear = $("#btnClear"),
     btnLargeText = $("#btnLargeText"),
     btnColor = $("#btnColor"),
@@ -18,23 +21,46 @@ function initMsg(arrayOfMsgs){
   });
 }
 
-//delete individual message handler
-$(document).on("click", "#ulMessages", function(event) {
-  let target = $( event.target );
-  if (target.html() === 'Delete'){
-    let msgElement = target.parents(".right");
-    Cathy.removeMsg(msgElement);
-    footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****Sam Phillips jQuery Edition****</span><span class="pull-right">Number of Messages: ' + Cathy.getMsgArray().length + '</span>');
-  } else if (event.target.innerHTML == "Edit"){
-    editToggle = true;
-    txtInput.focus();
-    txtInput.val('');
-    editMessage = $(event.target).parents("li").find("strong");
-  }
-});
 
-txtInput.keyup(inputHandler);
-$userName.keyup(inputHandler);
+
+
+
+//modal edition inputHandler
+
+// function inputHandler(event) {
+//   //I'd like to change this so that it opens a new "edit" window for the user, with a text input box that is pre-populated with the contents of editMessage, instead of focusing on the main message input and starting with a blank value.
+//   if (!editToggle){
+//     if (event.which === 13){
+//       if(txtInput.val() === ''){
+//         alert("Type Something....");
+//       } else {
+//       let indexNum = Cathy.getMsgArray().length,
+//       dateNow = new Date(Date.now()),
+//       userName = document.getElementById("userName").value;
+//       if(userName === ''){userName = 'Guest';}
+//       let msgObject = { "user": userName, "timestamp": dateNow, "message": txtInput.val()};
+//       Cathy.writeMsgDOM(ulMessages, msgObject, indexNum);
+//       Cathy.writeMsgArray(msgObject);
+//       txtInput.val('');
+//       }
+//     }
+//   } else {
+//     if (event.which === 13){
+//       if(txtInput.val() === ''){
+//         alert("Type Something....");
+//       } else {
+//         editMessage.html(editInput.val());
+//         editToggle = false;
+//         txtInput.val('');
+//       }
+//     }
+//   }
+// }
+
+
+
+
+//regular inputHandler
 
 function inputHandler(event) {
   //I'd like to change this so that it opens a new "edit" window for the user, with a text input box that is pre-populated with the contents of editMessage, instead of focusing on the main message input and starting with a blank value.
@@ -43,9 +69,9 @@ function inputHandler(event) {
       if(txtInput.val() === ''){
         alert("Type Something....");
       } else {
-      let indexNum = Cathy.getMsgArray().length;
-      let dateNow = new Date(Date.now());
-      let userName = document.getElementById("userName").value;
+      let indexNum = Cathy.getMsgArray().length,
+      dateNow = new Date(Date.now()),
+      userName = document.getElementById("userName").value;
       if(userName === ''){userName = 'Guest';}
       let msgObject = { "user": userName, "timestamp": dateNow, "message": txtInput.val()};
       Cathy.writeMsgDOM(ulMessages, msgObject, indexNum);
@@ -58,7 +84,6 @@ function inputHandler(event) {
       if(txtInput.val() === ''){
         alert("Type Something....");
       } else {
-
         editMessage.html(txtInput.val());
         editToggle = false;
         txtInput.val('');
@@ -66,6 +91,57 @@ function inputHandler(event) {
     }
   }
 }
+
+
+
+
+//modal
+
+// $(document).on("click", "#ulMessages", function(event) {
+//   let target = $(event.target);
+//   if (target.html() === 'Delete'){
+//     let msgElement = target.parents(".right");
+//     Cathy.removeMsg(msgElement);
+//     footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****Sam Phillips jQuery Edition****</span><span class="pull-right">Number of Messages: ' + Cathy.getMsgArray().length + '</span>');
+//   } else if ($(event.target).html() == "Edit"){
+//     let $messageContents = $(event.target).parents("li").find("strong");
+//     editToggle = true;
+//     txtInput.focus();
+//     txtInput.val($messageContents.html());
+//     editMessage = $messageContents;
+//   }
+// });
+
+// txtInput.keyup(inputHandler);
+// $userName.keyup(inputHandler);
+
+
+
+
+//regular
+
+$(document).on("click", "#ulMessages", function(event) {
+  let target = $(event.target);
+  if (target.html() === 'Delete'){
+    let msgElement = target.parents(".right");
+    Cathy.removeMsg(msgElement);
+    footerMain.html('<span class="pull-left">&copy; gitHeadz 2016. ****Sam Phillips jQuery Edition****</span><span class="pull-right">Number of Messages: ' + Cathy.getMsgArray().length + '</span>');
+  } else if ($(event.target).html() == "Edit"){
+    let $messageContents = $(event.target).parents("li").find("strong");
+    editToggle = true;
+    txtInput.focus();
+    txtInput.val($messageContents.html());
+    editMessage = $messageContents;
+  }
+});
+
+txtInput.keyup(inputHandler);
+$userName.keyup(inputHandler);
+
+
+
+
+
 
 btnClear.click(function () {
   btnClear.disabled = true;

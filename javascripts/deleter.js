@@ -1,4 +1,5 @@
 "use strict";
+
 var Cathy = (function (oldCathy) {
 
   oldCathy.removeMsg = function(myElement){

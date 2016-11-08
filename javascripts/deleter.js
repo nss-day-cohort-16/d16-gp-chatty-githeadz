@@ -1,13 +1,17 @@
 "use strict";
+
 var Cathy = (function (oldCathy) {
 
   oldCathy.removeMsg = function(myElement){
-    Cathy.removeMsgArray(parseInt(myElement.id));
-    ulMessages.removeChild(myElement);
 
-    var tempArray = ulMessages.getElementsByTagName("li");
+    let $element = $(myElement);
 
-    for (let i = parseInt(myElement.id); i < tempArray.length; i++){
+    Cathy.removeMsgArray(parseInt(myElement[0].id), $element);
+
+    myElement.remove();
+
+    var tempArray = $("li");
+    for (let i = 0; i < tempArray.length; i++){
       tempArray[i].setAttribute("id", i);
     }
   };
@@ -15,5 +19,3 @@ var Cathy = (function (oldCathy) {
   return oldCathy;
 
 })(Cathy || {});
-
-
